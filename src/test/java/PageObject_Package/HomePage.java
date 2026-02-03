@@ -17,13 +17,17 @@ public class HomePage {
         this.actions = new Actions(driver);
     }
 
-    public void open() {  }
+    public void open() {
+    }
 
     public void closePopupIfPresent() {
-        
+        try {
+            driver.findElement(By.xpath("//*[@class='close-modal']")).click();
+        } catch (Exception ignored) {
+        }
     }
 
     public void clickFurniture() {
-        
+
     }
 }
