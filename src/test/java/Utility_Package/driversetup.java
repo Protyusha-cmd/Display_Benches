@@ -16,16 +16,32 @@ public class driversetup {
     private static Properties props;
 
     private static void initConfig() {
-        
+
     }
 
     public static void initDriver() {
-        
+        initConfig();
+        String browser = props.getProperty("browser", "edge").trim().toLowerCase();
+        switch (browser) {
+            case "chrome":
+                TL.set(new ChromeDriver());
+                break;
+            case "firefox":
+                TL.set(new FirefoxDriver());
+                break;
+            default:
+                TL.set(new EdgeDriver());
+        }
+        getDriver().manage().window().maximize();
+        int iw = Integer.parseInt(props.getProperty("implicitWait", "10"));
+        getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(iw));
     }
 
-    public static WebDriver getDriver() { return TL.get(); }
+    public static WebDriver getDriver() {
+        return TL.get();
+    }
 
     public static void quitDriver() {
-       
+
     }
 }
