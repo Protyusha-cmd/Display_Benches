@@ -20,6 +20,10 @@ public class BenchesPage {
     }
 
     public void openMetalBenches() {
+         try {
+            WebElement clibenches = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"clip-heder-desktop\"]/div/owl-carousel-o/div/div[1]/owl-stage/div/div/div[3]/pf-clip-category-list/div/a/div/div[1]")));
+            clibenches.click();
+        } catch (Exception ignored) {}
         
     }
 

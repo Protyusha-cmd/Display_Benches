@@ -16,6 +16,11 @@ public class FurniturePage {
     }
 
     public void clickMoreCategories() {
+         try {
+            WebElement more = driver.findElement(By.xpath("/html/body/app-root/main/app-category/pf-clp/div/div[1]/div/div/pf-category-list/div/div[3]"));
+            actions.scrollToElement(more).perform();
+            more.click();
+        } catch (Exception ignored) {}
         
     }
 
